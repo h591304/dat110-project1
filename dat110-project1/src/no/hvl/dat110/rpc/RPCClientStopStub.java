@@ -10,8 +10,7 @@ public class RPCClientStopStub extends RPCLocalStub {
 	public void stop () {
 		
 		byte[] request = RPCUtils.marshallVoid();
-		
-		byte[] response = rpcclient.call(RPCCommon.RPIDSTOP,request);
+		byte[] response = rpcclient.call(RPCCommon.RPIDSTOP, request);
 		
 		RPCUtils.unmarshallVoid(response);
 	

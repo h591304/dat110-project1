@@ -4,6 +4,7 @@ package no.hvl.dat110.messaging;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 import no.hvl.dat110.TODO;
@@ -33,34 +34,34 @@ public class Connection {
 	}
 
 	public void send(Message message) {
-
 		byte[] data;
-		
-		// TODO - START
+		data = MessageUtils.encapsulate(message);
+
 		// encapsulate the data contained in the message and write to the output stream
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-			
-		// TODO - END
-
+		try {
+			outStream.write(data);
+		} catch (IOException ex) {
+			System.out.println("Exception: " + ex.getMessage());
+			ex.printStackTrace();
+		}
 	}
 
 	public Message receive() {
 
 		Message message = null;
-		byte[] data;
-		
-		// TODO - START
+		byte[] segment = new byte[MessageConfig.SEGMENTSIZE];
+
 		// read a segment from the input stream and decapsulate into message
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
-		
+		try {
+			inStream.read(segment);
+		} catch (IOException ex) {
+			System.out.println("Exception: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+		message = MessageUtils.decapsulate(segment);
+
 		return message;
-		
 	}
 
 	// close the connection by closing streams and the underlying socket	

@@ -11,7 +11,7 @@ public class RPCServerStopImpl extends RPCRemoteImpl {
 		
 		RPCUtils.unmarshallVoid(request);
 		
-		byte[] reply = RPCUtils.marshallVoid(); 
+		byte[] reply = RPCUtils.marshallVoid();
 		
 		stop(); 
 		

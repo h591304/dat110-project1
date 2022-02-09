@@ -1,5 +1,6 @@
 package no.hvl.dat110.system.sensor;
 
+import no.hvl.dat110.rpc.RPCCommon;
 import no.hvl.dat110.rpc.RPCRemoteImpl;
 import no.hvl.dat110.rpc.RPCUtils;
 import no.hvl.dat110.rpc.RPCServer;
@@ -29,7 +30,7 @@ public class SensorImpl extends RPCRemoteImpl {
 		
 		int temp = read();
 				
-		byte[] returnval = RPCUtils.marshallInteger(temp); 
+		byte[] returnval = RPCUtils.marshallInteger(temp);
 		
 		return returnval;
 	}
