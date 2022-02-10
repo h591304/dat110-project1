@@ -58,7 +58,7 @@ public class RPCUtils {
 	public static void unmarshallVoid(byte[] data) {
 		
 		byte[] nyData = new byte[data.length-1];
-		for(int i = 0; i <= nyData.length; i++) {
+		for(int i = 0; i < nyData.length; i++) {
 			nyData[i] = data[i+1];
 		}
 		

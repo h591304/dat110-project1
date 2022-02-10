@@ -38,13 +38,12 @@ public class RPCClient {
 			
 		*/
 
-		byte[] ecps = RPCUtils.encapsulate(rpcid, rpcRequest);
-		byte[] dcps = connection.receive().getData();
 
-		Message requestMessage = new Message(ecps);
+
+		Message requestMessage = new Message(RPCUtils.encapsulate(rpcid, rpcRequest));
 
 		connection.send(requestMessage);
-		rpcReply = RPCUtils.decapsulate(dcps);
+		rpcReply = RPCUtils.decapsulate(connection.receive().getData());
 
 		return rpcReply;
 		

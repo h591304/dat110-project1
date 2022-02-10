@@ -45,8 +45,8 @@ public class RPCServer {
 		   // - lookup the method to be invoked
 		   // - invoke the method
 		   // - send back message containing RPC reply
-
 		   requestmsg = connection.receive();
+
 		   byte[] encoded = requestmsg.getData();
 		   rpcid = encoded[0];
 
