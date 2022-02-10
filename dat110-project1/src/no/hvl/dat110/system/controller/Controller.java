@@ -38,13 +38,7 @@ public class Controller  {
 
 		for(int i = 0; i < N; i++) {
 			int temp = sensor.read();
-			display.write(String.valueOf(temp));
-
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException ex) {
-				ex.printStackTrace();
-			}
+			display.write(temp + "Celsius");
 		}
 
 		stopdisplay.stop();
