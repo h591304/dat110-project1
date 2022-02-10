@@ -36,10 +36,18 @@ public class Controller  {
 		displayclient.connect();
 		sensorclient.connect();
 
+		System.out.println("------------------------------");
 		for(int i = 0; i < N; i++) {
 			int temp = sensor.read();
 			display.write(temp + "Celsius");
+
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
+		System.out.println("------------------------------");
 
 		stopdisplay.stop();
 		stopsensor.stop();
